@@ -26,6 +26,13 @@ func (_ tApplication) EnterDemo(
 	return revel.MainRouter.Reverse("Application.EnterDemo", args).Url
 }
 
+func (_ tApplication) CheckIn(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("Application.CheckIn", args).Url
+}
+
 
 type tLongPolling struct {}
 var LongPolling tLongPolling

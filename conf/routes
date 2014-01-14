@@ -8,6 +8,8 @@ module:testrunner
 GET     /                                       Application.Index
 GET     /demo                                   Application.EnterDemo
 
+GET     /checkin                                Application.CheckIn
+
 # Refresh demo
 GET     /refresh                                Refresh.Index
 GET     /refresh/room                           Refresh.Room

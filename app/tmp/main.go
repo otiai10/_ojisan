@@ -36,7 +36,7 @@ func main() {
 				Args: []*revel.MethodArg{ 
 				},
 				RenderArgNames: map[int][]string{ 
-					12: []string{ 
+					14: []string{ 
 					},
 				},
 			},
@@ -45,6 +45,13 @@ func main() {
 				Args: []*revel.MethodArg{ 
 					&revel.MethodArg{Name: "user", Type: reflect.TypeOf((*string)(nil)) },
 					&revel.MethodArg{Name: "demo", Type: reflect.TypeOf((*string)(nil)) },
+				},
+				RenderArgNames: map[int][]string{ 
+				},
+			},
+			&revel.MethodType{
+				Name: "CheckIn",
+				Args: []*revel.MethodArg{ 
 				},
 				RenderArgNames: map[int][]string{ 
 				},
@@ -143,7 +150,7 @@ func main() {
 					&revel.MethodArg{Name: "user", Type: reflect.TypeOf((*string)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					16: []string{ 
+					17: []string{ 
 						"user",
 					},
 				},
@@ -220,8 +227,8 @@ func main() {
 	
 	revel.DefaultValidationKeys = map[string]map[int]string{ 
 		"_ojisan/app/controllers.Application.EnterDemo": { 
-			16: "user",
-			17: "demo",
+			18: "user",
+			19: "demo",
 		},
 	}
 	revel.TestSuites = []interface{}{ 

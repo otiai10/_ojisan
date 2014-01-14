@@ -8,7 +8,9 @@ type Application struct {
 	*revel.Controller
 }
 
+// さいしょのページレンダリングだけー
 func (c Application) Index() revel.Result {
+    // すでにセッションあるならRoomにリダイレクトしようかなー
 	return c.Render()
 }
 
@@ -30,4 +32,11 @@ func (c Application) EnterDemo(user, demo string) revel.Result {
 		return c.Redirect("/websocket/room?user=%s", user)
 	}
 	return nil
+}
+
+func (c Application) CheckIn() revel.Result {
+    // ここで、oauthして、screenNameを取得して、セッションにぶち込む
+    user := "otiai10"
+    c.Session["screenName"] = "otiai16"
+    return c.Redirect("/websocket/room?user=%s", user)
 }
