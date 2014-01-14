@@ -64,7 +64,7 @@
 
   $('#send').click(function(e) {
     var message = $('#message').val()
-    $('#message').val('')
+    $('#message').val('').focus();
     socket.send(message)
   });
 
