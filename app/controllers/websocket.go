@@ -6,6 +6,7 @@ import (
 	"github.com/robfig/revel/samples/chat/app/chatroom"
 
     "fmt"
+    "html"
 )
 
 type WebSocket struct {
@@ -68,7 +69,9 @@ func (c WebSocket) RoomSocket(user string, ws *websocket.Conn) revel.Result {
 			}
 
 			// Otherwise, say something.
-			chatroom.Say(user, msg)
+            // chatroom.Sayでやるべきな気がするけれど
+            escaped := html.EscapeString(msg)
+			chatroom.Say(user, escaped)
 		}
 	}
 	return nil
