@@ -4,6 +4,8 @@ import (
 	"code.google.com/p/go.net/websocket"
 	"github.com/robfig/revel"
 	"github.com/robfig/revel/samples/chat/app/chatroom"
+
+    "fmt"
 )
 
 type WebSocket struct {
@@ -15,6 +17,10 @@ func (c WebSocket) Room(user string) revel.Result {
 }
 
 func (c WebSocket) RoomSocket(user string, ws *websocket.Conn) revel.Result {
+
+    name, ok := c.Session["screenName"]
+    fmt.Println("入室時セッションチェック", name, ok)
+
 	// Join the room.
 	subscription := chatroom.Subscribe()
 	defer subscription.Cancel()
@@ -41,6 +47,8 @@ func (c WebSocket) RoomSocket(user string, ws *websocket.Conn) revel.Result {
 				close(newMessages)
 				return
 			}
+            name, ok = c.Session["screenName"]
+            fmt.Println("メッセージごとのセッションチェック", name, ok, msg)
 			newMessages <- msg
 		}
 	}()
