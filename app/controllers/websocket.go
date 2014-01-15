@@ -13,14 +13,22 @@ type WebSocket struct {
 	*revel.Controller
 }
 
-func (c WebSocket) Room(user string) revel.Result {
+func (c WebSocket) Room() revel.Result {
+    user, ok := c.Session["screenName"]
+    fmt.Println("入室時セッションチェック", user, ok)
+    if ! ok {
+        c.Redirect("/")
+    }
 	return c.Render(user)
 }
 
-func (c WebSocket) RoomSocket(user string, ws *websocket.Conn) revel.Result {
+func (c WebSocket) RoomSocket(ws *websocket.Conn) revel.Result {
 
-    name, ok := c.Session["screenName"]
-    fmt.Println("入室時セッションチェック", name, ok)
+    user, ok := c.Session["screenName"]
+    fmt.Println("ソケットコネクション時セッションチェック", user, ok)
+    if ! ok {
+        c.Redirect("/")
+    }
 
 	// Join the room.
 	subscription := chatroom.Subscribe()
@@ -48,8 +56,8 @@ func (c WebSocket) RoomSocket(user string, ws *websocket.Conn) revel.Result {
 				close(newMessages)
 				return
 			}
-            name, ok = c.Session["screenName"]
-            fmt.Println("メッセージごとのセッションチェック", name, ok, msg)
+            user, ok = c.Session["screenName"]
+            fmt.Println("メッセージごとのセッションチェック", user, ok, msg)
 			newMessages <- msg
 		}
 	}()

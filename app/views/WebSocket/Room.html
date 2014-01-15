@@ -41,6 +41,10 @@
   </script>
 </div>
 
+{{if .flash.success}}
+    <h2>{{.flash.success}}</h2>
+{{end}}
+
 <div id="newMessage">
   <input type="text" id="message" autocomplete="off" autofocus>
   <input type="submit" value="send" id="send">

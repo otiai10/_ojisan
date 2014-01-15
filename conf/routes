@@ -6,9 +6,10 @@ module:testrunner
 
 # Login
 GET     /                                       Application.Index
-GET     /demo                                   Application.EnterDemo
 
 GET     /checkin                                Application.CheckIn
+
+GET     /room                                   WebSocket.Room
 
 # Refresh demo
 GET     /refresh                                Refresh.Index

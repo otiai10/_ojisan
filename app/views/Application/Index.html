@@ -6,7 +6,9 @@
   <h2>The Chat demonstration (from Play!)</h2>
 
   <div id="signin">
-    <form action="{{url "Application.EnterDemo"}}">
+    <!-- このヘルパーもちゃんと調べたい↓ -->
+    <!-- form action="{{/* url "Application.EnterDemo" */}}" -->
+    <form action="{{url "Application.CheckIn"}}">
       {{if .flash.error}}
         <p class="error">
           {{.flash.error}}
