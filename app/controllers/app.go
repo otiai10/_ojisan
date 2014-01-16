@@ -12,7 +12,7 @@ type Application struct {
 func (c Application) Index() revel.Result {
     if _, ok := c.Session["screenName"]; ok {
         c.Flash.Success("You already have session.")
-        c.Redirect(WebSocket.Room)
+        return c.Redirect(WebSocket.Room)
     }
 	return c.Render()
 }

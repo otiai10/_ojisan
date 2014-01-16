@@ -122,6 +122,13 @@ func (_ tWebSocket) Room(
 	return revel.MainRouter.Reverse("WebSocket.Room", args).Url
 }
 
+func (_ tWebSocket) Leave(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("WebSocket.Leave", args).Url
+}
+
 func (_ tWebSocket) RoomSocket(
 		ws interface{},
 		) string {

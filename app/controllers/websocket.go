@@ -17,9 +17,15 @@ func (c WebSocket) Room() revel.Result {
     user, ok := c.Session["screenName"]
     fmt.Println("入室時セッションチェック", user, ok)
     if ! ok {
-        c.Redirect("/")
+        return c.Redirect(Application.Index)
     }
 	return c.Render(user)
+}
+func (c WebSocket) Leave() revel.Result {
+    delete(c.Session, "screenName")
+    user, ok := c.Session["screenName"]
+    fmt.Println("退室時セッションチェック", user, ok)
+    return c.Redirect(Application.Index)
 }
 
 func (c WebSocket) RoomSocket(ws *websocket.Conn) revel.Result {

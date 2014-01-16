@@ -11,6 +11,8 @@ GET     /checkin                                Application.CheckIn
 
 GET     /room                                   WebSocket.Room
 
+GET     /room/leave                             WebSocket.Leave
+
 # Refresh demo
 GET     /refresh                                Refresh.Index
 GET     /refresh/room                           Refresh.Room
