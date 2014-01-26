@@ -13,6 +13,8 @@ GET     /room                                   WebSocket.Room
 
 GET     /room/leave                             WebSocket.Leave
 
+GET     /Application/Authenticate               Application.Authenticate
+
 # Refresh demo
 GET     /refresh                                Refresh.Index
 GET     /refresh/room                           Refresh.Room
