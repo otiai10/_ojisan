@@ -8,27 +8,11 @@ module:testrunner
 GET     /                                       Application.Index
 
 GET     /checkin                                Application.CheckIn
-
-GET     /room                                   WebSocket.Room
-
-GET     /room/leave                             WebSocket.Leave
-
 GET     /Application/Authenticate               Application.Authenticate
 
-# Refresh demo
-GET     /refresh                                Refresh.Index
-GET     /refresh/room                           Refresh.Room
-POST    /refresh/room                           Refresh.Say
-GET     /refresh/room/leave                     Refresh.Leave
+GET     /room                                   WebSocket.Room
+GET     /room/leave                             WebSocket.Leave
 
-# Long polling demo
-GET     /longpolling/room                       LongPolling.Room
-GET     /longpolling/room/messages              LongPolling.WaitMessages
-POST    /longpolling/room/messages              LongPolling.Say
-GET     /longpolling/room/leave                 LongPolling.Leave
-
-# WebSocket demo
-GET     /websocket/room                         WebSocket.Room
 WS      /websocket/room/socket                  WebSocket.RoomSocket
 
 # Map static resources from the /app/public folder to the /public path
